@@ -28,7 +28,7 @@ public class SurveyService {
         return surveyRepository.findById(id)
                 .map(survey-> {
                     survey.setTitle(surveyEntity.getTitle());
-                    survey.setType(surveyEntity.getType());
+                    survey.setSurveyTypes(surveyEntity.getSurveyTypes());
                     survey.setCode(surveyEntity.getCode());
                     survey.setDescription(surveyEntity.getDescription());
                     survey.setDuration(surveyEntity.getDuration());

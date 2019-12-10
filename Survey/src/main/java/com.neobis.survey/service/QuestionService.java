@@ -21,19 +21,19 @@ public class QuestionService {
 
     public String deleteById(Integer id) {
         questionRepository.deleteById(id);
-        return "Question number " + id + " has been deleted!";
+        return "QuestionController number " + id + " has been deleted!";
     }
 
     public Question changeById(Integer id, Question questionEntity) throws Exception {
         return questionRepository.findById(id)
                 .map(question -> {
                     question.setDescription(questionEntity.getDescription());
-                    question.setType(questionEntity.getType());
+                    question.setQuestionType(questionEntity.getQuestionType());
                     return questionRepository.save(question);
                 }).orElseThrow(Exception::new);
     }
 
-    public Question createSurvey(Question question) {
+    public Question createQuestion(Question question) {
         return questionRepository.save(question);
     }
 

@@ -22,7 +22,7 @@ public class AnswerService {
 
     public String deleteById(Integer id) {
         answerRepository.deleteById(id);
-        return "Answer number " + id + " has been deleted!";
+        return "AnswerController number " + id + " has been deleted!";
     }
 
     public Answer changeById(Integer id, Answer answerEntity) throws Exception {

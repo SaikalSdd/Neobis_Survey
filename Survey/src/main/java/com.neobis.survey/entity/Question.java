@@ -1,5 +1,8 @@
 package com.neobis.survey.entity;
 
+import com.neobis.survey.entity.Question;
+import com.neobis.survey.entity.enums.QuestionType;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -18,16 +21,16 @@ public class Question {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type")
-    private String type;
+    @Column(name = "question_type")
+    private QuestionType questionType;
 
-    public Question(){
+    public Question() {
 
     }
 
     public Question(String description, String type) {
         this.description = description;
-        this.type = type;
+        this.questionType = questionType;
     }
 
     public Integer getId() {
@@ -46,13 +49,12 @@ public class Question {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public QuestionType getQuestionType() {
+        return questionType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQuestionType(QuestionType questionType) {
+        this.questionType = questionType;
     }
 }
-
 

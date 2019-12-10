@@ -1,5 +1,6 @@
 package com.neobis.survey.entity;
 
+import com.neobis.survey.entity.enums.Gender;
 import com.neovisionaries.i18n.CountryCode;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
-    private String gender;
+    private Gender gender;
 
     @Column(name = "country", length = 2)
     private String country;
@@ -60,8 +61,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, LocalDate birthDate, String gender, String country, String city, String email, String phone, String picture, String created, String updated, Integer age, List<Survey> surveys) {
-        this.id = id;
+    public User(String name, LocalDate birthDate, Gender gender, String country, String city, String email, String phone, String picture, String created, String updated, Integer age) {
         this.name = name;
         this.birthDate = birthDate;
         this.gender = gender;
@@ -99,16 +99,16 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
     public String getCountry() {
-        return String.valueOf(CountryCode.getByCode(country));
+        return country;
     }
 
     public void setCountry(String country) {

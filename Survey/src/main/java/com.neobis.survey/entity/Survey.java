@@ -20,8 +20,8 @@ public class Survey{
     private String title;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type")
-    private String type;
+    @Column(name = "survey_type")
+    private SurveyTypes surveyTypes;
 
     @Column(name = "code")
     private Integer code;
@@ -43,9 +43,9 @@ public class Survey{
 
     }
 
-    public Survey(String title, String type, Integer code, String description, String duration, List<Question> questions, Integer userId) {
+    public Survey(String title, SurveyTypes surveyTypes, Integer code, String description, String duration, List<Question> questions, Integer userId) {
         this.title = title;
-        this.type = type;
+        this.surveyTypes = surveyTypes;
         this.code = code;
         this.description = description;
         this.duration = duration;
@@ -69,12 +69,12 @@ public class Survey{
         this.title = title;
     }
 
-    public String getType() {
-        return type;
+    public SurveyTypes getSurveyTypes() {
+        return surveyTypes;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSurveyTypes(SurveyTypes surveyTypes) {
+        this.surveyTypes = surveyTypes;
     }
 
     public Integer getCode() {
